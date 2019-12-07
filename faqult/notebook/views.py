@@ -29,7 +29,7 @@ def postview(request):
         form = NotebookForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, ('Rekomendasi Berhasil ditambahkan.'))
+            messages.success(request, ('Informasi Berhasil ditambahkan.'))
             return redirect('notebook:Notebook_list')
     form = NotebookForm()
     return render(request,'notebook/post.html',{'form': form})
@@ -41,6 +41,6 @@ def EditNotebook(request, id, template_name='notebook/edit.html'):
     form = NotebookForm(request.POST or None, instance=post)
     if form.is_valid():
         form.save()
-        messages.success(request, ('Rekomendasi Berhasil diedit.'))
+        messages.success(request, ('Informasi Berhasil diedit.'))
         return redirect('/')
     return render(request, template_name, {'form':form})
