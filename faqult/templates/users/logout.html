@@ -1,0 +1,10 @@
+{% extends "notebook/base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+    <h3>Anda telah keluar dari sistem</h3>      
+    <div class="border-top pt-3">
+        <div class="text-muted">
+        <a href= {% url 'login' %}>Login Kembali</a>
+        </div>
+    </div>
+{% endblock %}

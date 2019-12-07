@@ -1,0 +1,37 @@
+{% extends 'notebook/base.html' %}
+{% block content %}
+
+<ul class="list-group list-group-flush">
+        <li class="list-group-item">Nama: {{notebook.nama}} 
+                                <br>Profesi: {{notebook.profesi}} 
+                                <br>Nomot Telp.: {{notebook.no_telp}}</li>
+        <li class="list-group-item">Kategori: {{notebook.kategori}}</li>
+        <li class="list-group-item">
+                <table class="table">Bagian: {{notebook.bagian}} <br>Sub Bagian: {{notebook.sub_bagian}}
+                    <tbody><tr>
+                        <th>Pertanyaan: <br>{{notebook.pertanyaan}}</th>
+                        <th>Jawaban: <br>{{notebook.jawaban}}</th>
+                    </tr></tbody>
+                    </table>
+            </li>
+        <li class="list-group-item">Tanggal: {{notebook.created}} </li>
+      </ul>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1 col-xs-1 col-sm-1"> <br>
+                    <td><a href="{% url 'notebook:index' %}"><button type="button" class="btn btn-primary">Simpan 
+                    </button></a></td></div>
+                    
+                    {% if user.is_authenticated %}
+                    
+                    <div class="col-md-1 col-xs-1 col-sm-1"><br>
+                    <td><a href="{% url 'notebook:EditNotebook' notebook.id %}"><button type="button" class="btn btn-danger">Edit</button></a>
+                    </td>
+                    {% endif %}
+                    </div>        
+            </div>
+        </div> 
+
+{% endblock %}
+<br>
