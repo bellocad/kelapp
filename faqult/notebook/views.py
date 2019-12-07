@@ -133,7 +133,7 @@ def post_pending(request, id):
     post = get_object_or_404(Notebook, id=id)
     post.keterangan = True
     post.save()
-    messages.success(request, ('Status Belum Selesai.'))
+    messages.success(request, ('Berhasil ubah keterangan'))
     return redirect('notebook:Notebook_list')
 
 @login_required    
@@ -141,5 +141,5 @@ def post_completed(request, id):
     post = get_object_or_404(Notebook, id=id)
     post.keterangan = False
     post.save()
-    messages.success(request, ('Status Selesai.'))
+    messages.success(request, ('Berhasil ubah keterangan'))
     return redirect('notebook:Notebook_list')
