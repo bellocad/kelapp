@@ -1,6 +1,6 @@
 from django.db import models
 
-# database bagian
+# datatable bagian
 class bagian(models.Model):
 
     nama_bagian = models.CharField(max_length=100)
@@ -17,9 +17,9 @@ class bagian(models.Model):
 
 
     def __str__(self):
-        return self.sub_bagian
+        return self.bagian
 
-# database notebook
+# datatable notebook
 class Notebook(models.Model):
 
     nama = models.CharField(('Nama'),max_length=100,null=True,blank=False)
@@ -27,7 +27,7 @@ class Notebook(models.Model):
     no_telp = models.CharField(('Nomor Telp'),max_length=50,null=True,blank=False)
     pertanyaan = models.TextField(('Pertanyaan'),null=True,blank=False)
     kategori = models.CharField(('Kategori Pertanyaan'),max_length=100)
-    bagian = models.ForeignKey(bagian,verbose_name =('Sub Bagian'),on_delete=models.SET_NULL,null=True,default=None)
+    bagian = models.ForeignKey(bagian,verbose_name =('Bagian'),on_delete=models.SET_NULL,null=True,default=None)
     prioritas = models.CharField(('Prioritas'),max_length=100,null=True,blank=False)
     jawaban = models.TextField(('Jawaban'),null=True,blank=False)
 
@@ -44,3 +44,14 @@ class Notebook(models.Model):
     def __str__(self):
         return self.nama
 
+# datatable catatan
+class catatan(models.Model):
+
+    catatan = models.TextField(('Catatan'),max_length=300,null=True,blank=False)
+    kategori = models.CharField(('Kategori'),max_length=100,null=True,blank=False)
+
+    created = models.DateTimeField(verbose_name=('Created'),auto_now_add=True)
+    updated = models.DateTimeField(verbose_name=('Updated'),auto_now=True)
+
+    def __str__(self):
+        return self.catatan
