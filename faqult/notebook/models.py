@@ -27,8 +27,8 @@ class Notebook(models.Model):
     no_telp = models.CharField(('Nomor Telp'),max_length=50,null=True,blank=False)
     pertanyaan = models.TextField(('Pertanyaan'),null=True,blank=False)
     kategori = models.CharField(('Kategori Pertanyaan'),max_length=100)
-    bagian = models.ForeignKey(bagian,verbose_name =('Bagian'),on_delete=models.SET_NULL,null=True,default=None)
-    sub_bagian = models.CharField(('Sub Bagian'),max_length=100,null=True,blank=False)
+    bagian = models.ForeignKey(bagian,verbose_name =('Sub Bagian'),on_delete=models.SET_NULL,null=True,default=None)
+    prioritas = models.CharField(('Prioritas'),max_length=100,null=True,blank=False)
     jawaban = models.TextField(('Jawaban'),null=True,blank=False)
 
     created = models.DateTimeField(verbose_name=('Created'),auto_now_add=True)
