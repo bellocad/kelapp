@@ -19,18 +19,25 @@
           <li class="nav-item">
               <a class="nav-link" href="{% url 'notebook:post' %}">+ Pertanyaan {{ all_notebook.count }}</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'notebook:catatanbaru' %}">+ Catatan Harian</a>
-            </li>
             <li class="nav-item dropdown">
-              <a href="" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              </a>
-              
+              <a href="{% url 'notebook:catatanbaru' %}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Catatan Harian</a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="{% url 'notebook:Catatan_list' %}">Daftar Catatan</a>
+                <a class="nav-link" href="{% url 'notebook:catatanbaru' %}">+ Catatan Harian</a>
                 <!-- <li class="divider"></li>
                 <li><a href="">Settings</a></li> -->
                 </div>
+
+                  <li class="nav-item dropdown">
+                      <a href="" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Bagian</a>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'notebook:Bagian_list' %}">Daftar Bagian</a>
+                        <a class="nav-link" href="{% url 'notebook:BagianBaru' %}">+ Bagian</a>
+                        <!-- <li class="divider"></li>
+                        <li><a href="">Settings</a></li> -->
+                        </div>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="nav-item dropdown">

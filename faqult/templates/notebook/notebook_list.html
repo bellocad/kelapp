@@ -16,10 +16,10 @@
     </thead>
     <tbody>
         {% for Notebook in post_list %}
-
+        {% if Notebook.keterangan %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td><a href="{% url 'notebook:NotebookDetail' Notebook.pk %}">{{Notebook.kategori}}</a>
+            <td><a href="{% url 'notebook:NotebookDetail' Notebook.id %}">{{Notebook.kategori}}</a>
                 <br>Bagian: {{Notebook.bagian}}
                 <br>Sub Bagian: {{Notebook.sub_bagian}}
                 <br>Pertanyaan:
@@ -32,8 +32,33 @@
                     <br>{{Notebook.profesi}}
                     <br>{{Notebook.no_telp}}
             </td>
-            <td><a href="#" class="btn btn-success btn-sm" role="button"><i class="fas fa-check-circle"></i>
-                {{Notebook.status | yesno:"Selesai,Belum,Kosong"}}</a></td>
+            <td>        
+
+                    <a href="{% url 'notebook:post_completed' Notebook.id %}" class="btn btn-success btn-sm" role="button"><i class="fas fa-check-circle"></i>
+                        {{Notebook.keterangan | yesno:"Selesai,Belum Selesai,Kosong"}}</a>
+                </td>
+            {% else %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'notebook:NotebookDetail' Notebook.id %}">{{Notebook.kategori}}</a>
+                <br>Bagian: {{Notebook.bagian}}
+                <br>Sub Bagian: {{Notebook.sub_bagian}}
+                <br>Pertanyaan:
+                <br>{{Notebook.pertanyaan}}
+            </td>
+            <td>
+                <br>{{Notebook.jawaban}}
+            </td>
+            <td>{{Notebook.nama}}
+                    <br>{{Notebook.profesi}}
+                    <br>{{Notebook.no_telp}}
+            </td>                
+            <td>
+                    <a href="{% url 'notebook:post_pending' Notebook.id %}" class="btn btn-dark btn-sm" role="button"><i class="far fa-circle"></i>
+                        {{Notebook.keterangan | yesno:"Selesai,Belum Selesai,Kosong"}}</a>
+                </td>
+            </tr>
+            {% endif %}</td>
         </tr>
         {% endfor %}
     </tbody>

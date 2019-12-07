@@ -3,25 +3,22 @@
 {% block content %}
 
 <h5>Notebook</h5><i class="fas fa-level-down-alt"></i>
-{% if cat_list %}
+{% if bag_list %}
 <table id="table_id" class="table table-hover">
     <thead>
         <tr>
             <th scope="col">No.</th>
-            <th scope="col">Tanggal</th>
-            <th scope="col">Catatan</th>
-            <th scope="col">Kategori</th>
+            <th scope="col">Nama Bagian</th>
+            <th scope="col">Sub Bagian</th>
         </tr>
     </thead>
     <tbody>
-        {% for catatan in cat_list %}
+        {% for bagian in bag_list %}
 
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td><a href="{% url 'notebook:EditCatatan' catatan.id %}">{{catatan.created}}</a></td>
-            <td>{{catatan.catatan}}</td>
-            <td>{{catatan.kategori}}</td>
-            <td>
+            <td><a href="{% url 'notebook:BagianEdit' bagian.id %}">{{bagian.nama_bagian}}</a></td>
+            <td>{{bagian.sub_bagian}}</td>
         {% endfor %}
     </tbody>
 </table>
