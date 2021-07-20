@@ -1,0 +1,36 @@
+{% extends 'sikept/main.html' %}
+
+{% block content %}    
+ 
+    <br>
+    <div class="row">
+        <div class="col-md">
+            <div class="card-card-body">
+                <h5>Dokumen</h5>
+            </div>
+            <div class="card card body">
+                <table class="table">
+                    <td><a class="btn btn-sm btn-info" href="{% url 'upload_dokumen' %}">Upload Dokumen</a></td>
+                    <tr>
+                        <th>Nomor Surat</th>
+                        <th>Perihal</th>
+                        <th>Kategori</th>
+                        <th>Tanggal Surat</th>
+                        <th>Nama Pejabat</th>
+                    </tr>
+                    {% for i in dok %}
+                    <tr>
+                        <td>{{i.nomor}}</td>
+                        <td>{{i.perihal}}</td>
+                        <td>{{i.category}}</td>
+                        <td>{{i.tanggal_surat}}</td>
+                        <td>{{i.nama_pejabat}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

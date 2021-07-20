@@ -1,0 +1,28 @@
+{% extends 'sikept/main.html' %}
+
+{% block content %}    
+ 
+
+    <br>
+
+    <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Dokumen</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Nomor Surat: {{dokumenDetail.nomor}}</li>
+          <li class="list-group-item">perihal: {{dokumenDetail.perihal}}</li>
+          <li class="list-group-item">Jenis: {{dokumenDetail.category}}</li>
+          <li class="list-group-item">Nama Pejabat Penandatangan: {{dokumenDetail.nama_pejabat}}</li>
+        </ul>
+          <div class="card-body">
+          <a href="#" class="card-link">{{i.tanggal_surat}}</a>
+          <a href="#" class="card-link"></a>
+        </div>
+      </div>
+
+
+{% endblock %}

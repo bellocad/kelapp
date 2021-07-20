@@ -1,0 +1,22 @@
+{% extends 'sikept/main.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+<br>
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm"></table>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form|crispy}}
+
+                <input type="submit" name="submit">
+            </form>
+        </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
